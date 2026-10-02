@@ -778,6 +778,13 @@ footer p {
   display: none;
 }
 @media (max-width: 700px) {
+.catalog-card,
+.catalog-card h3,
+.catalog-card p,
+.catalog-card span {
+  color: var(--black) !important;
+  -webkit-text-fill-color: var(--black);
+}
 
   .navbar {
     height: 72px;
