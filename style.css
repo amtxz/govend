@@ -810,9 +810,9 @@ footer p {
     top: 105px;
   }
   .hero-side-left {
-  left: 14px;
-  top: 60%;
-  width: 90px;
+  left: 24px;
+  top: 45%;
+  width: 110px;
   font-size: 0.52rem;
   line-height: 1.5;
   text-align: left;
@@ -820,9 +820,9 @@ footer p {
 }
 
 .hero-side-right {
-  right: 14px;
-  top: 60%;
-  width: 90px;
+  right: 24px;
+  top: 45%;
+  width: 110px;
   font-size: 0.52rem;
   line-height: 1.5;
   text-align: right;
