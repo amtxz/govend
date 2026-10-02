@@ -813,7 +813,7 @@ footer p {
   position: absolute !important;
   left: 28px !important;
   right: auto !important;
-  top: 340px !important;
+  top: 160px !important;
   bottom: auto !important;
   width: 115px;
   font-size: 0.52rem;
@@ -827,7 +827,7 @@ footer p {
   position: absolute !important;
   left: auto !important;
   right: 28px !important;
-  top: 340px !important;
+  top: 160px !important;
   bottom: auto !important;
   width: 115px;
   font-size: 0.52rem;
