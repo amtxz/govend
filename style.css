@@ -704,6 +704,11 @@ footer {
   align-items: center;
   justify-content: space-between;
 }
+.footer-brand img {
+  display: block;
+  width: 150px;
+  height: auto;
+}
 
 footer p {
   font-family: "Courier New", monospace;
