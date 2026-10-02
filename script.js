@@ -9,7 +9,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const machineThree = document.querySelector(".machine-three");
 
   const machines = [machineOne, machineTwo, machineThree].filter(Boolean);
+const machineStage = document.querySelector(".machine-stage");
 
+const catalogTargets = {
+  single: document.querySelector(
+    '.catalog-card[data-machine="single"] .catalog-machine-image'
+  ),
+  double: document.querySelector(
+    '.catalog-card[data-machine="double"] .catalog-machine-image'
+  ),
+  generic: document.querySelector(
+    '.catalog-card[data-machine="generic"] .catalog-machine-image'
+  )
+};
+
+function clamp(value, min = 0, max = 1) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function lerp(start, end, progress) {
+  return start + (end - start) * progress;
+}
+
+/* Hero machines are visual only — clicking them does nothing */
+machines.forEach((machine) => {
+  machine.style.pointerEvents = "none";
+  machine.style.cursor = "default";
+});
   /* ------------------------------
      HERO MACHINE FLOATING
   ------------------------------ */
@@ -66,25 +92,71 @@ document.addEventListener("DOMContentLoaded", () => {
         `translateX(-50%) translateY(${30 * fadeProgress}px)`;
     }
 
-    const travel = progress * 115;
+    /* --------------------------------
+   MACHINES TRAVEL INTO THE CATALOG
+-------------------------------- */
 
-    if (machineOne) {
-      machineOne.style.setProperty("--scroll-y", `${travel}px`);
-      machineOne.style.setProperty("--scroll-x", `${progress * 55}px`);
-      machineOne.style.setProperty("--scroll-scale", `${1 - progress * 0.04}`);
-    }
+const landingProgress = clamp((progress - 0.28) / 0.72);
 
-    if (machineTwo) {
-      machineTwo.style.setProperty("--scroll-y", `${travel + 18}px`);
-      machineTwo.style.setProperty("--scroll-x", `0px`);
-      machineTwo.style.setProperty("--scroll-scale", `${1 - progress * 0.06}`);
-    }
+const transitionMachine = (machine, target) => {
+  if (!machine || !target || !machineStage) return;
 
-    if (machineThree) {
-      machineThree.style.setProperty("--scroll-y", `${travel}px`);
-      machineThree.style.setProperty("--scroll-x", `${progress * -55}px`);
-      machineThree.style.setProperty("--scroll-scale", `${1 - progress * 0.04}`);
-    }
+  const stageRect = machineStage.getBoundingClientRect();
+  const targetRect = target.getBoundingClientRect();
+
+  /*
+    Calculate the machine's original position without using
+    getBoundingClientRect() on the machine itself, because the
+    machine is already being transformed.
+  */
+  const startCenterX =
+    stageRect.left + machine.offsetLeft + machine.offsetWidth / 2;
+
+  const startCenterY =
+    stageRect.top + machine.offsetTop + machine.offsetHeight / 2;
+
+  const targetCenterX =
+    targetRect.left + targetRect.width / 2;
+
+  const targetCenterY =
+    targetRect.top + targetRect.height / 2;
+
+  const targetX = targetCenterX - startCenterX;
+  const targetY = targetCenterY - startCenterY;
+
+  const targetScale =
+    targetRect.width / machine.offsetWidth;
+
+  const moveX = lerp(0, targetX, landingProgress);
+  const moveY = lerp(0, targetY, landingProgress);
+  const scale = lerp(1, targetScale, landingProgress);
+
+  machine.style.setProperty("--scroll-x", `${moveX}px`);
+  machine.style.setProperty("--scroll-y", `${moveY}px`);
+  machine.style.setProperty("--scroll-scale", scale);
+
+  /*
+    Fade the traveling copy right before it reaches the catalog.
+    The real catalog image underneath takes over seamlessly.
+  */
+  const fadeOut = clamp((landingProgress - 0.82) / 0.18);
+  machine.style.opacity = 1 - fadeOut;
+};
+
+transitionMachine(
+  machineOne,
+  catalogTargets.single
+);
+
+transitionMachine(
+  machineTwo,
+  catalogTargets.double
+);
+
+transitionMachine(
+  machineThree,
+  catalogTargets.generic
+);
   }
 
   window.addEventListener("scroll", updateHeroScroll, { passive: true });
@@ -181,8 +253,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  document.querySelectorAll("[data-machine]").forEach((button) => {
-    button.addEventListener("click", () => {
+document.querySelectorAll(".catalog-card[data-machine]").forEach((button) => {
+  button.addEventListener("click", () => {
       const key = button.dataset.machine;
       const info = machineInfo[key];
 
