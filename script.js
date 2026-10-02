@@ -253,8 +253,7 @@ function updateInventoryDisplay() {
     const level = inventoryLevels[index];
 
     const fill = item.querySelector(".stock-fill");
-    const percentage = item.querySelector("strong");
-
+    const percentage = item.querySelectorAll("strong")[1];
     if (fill) {
       fill.style.width = `${level}%`;
     }
@@ -270,12 +269,21 @@ function simulateInventoryActivity() {
     Math.random() * inventoryLevels.length
   );
 
-  const amountSold = Math.floor(Math.random() * 4) + 1;
+  const changeAmount = Math.floor(Math.random() * 7) + 3;
 
+const shouldIncrease = Math.random() < 0.35;
+
+if (shouldIncrease) {
+  inventoryLevels[randomItem] = Math.min(
+    100,
+    inventoryLevels[randomItem] + changeAmount
+  );
+} else {
   inventoryLevels[randomItem] = Math.max(
     5,
-    inventoryLevels[randomItem] - amountSold
+    inventoryLevels[randomItem] - changeAmount
   );
+}
 
   updateInventoryDisplay();
 }
@@ -290,7 +298,7 @@ const liveInventoryObserver = new IntersectionObserver(
 
         updateInventoryDisplay();
 
-        setInterval(simulateInventoryActivity, 2200);
+        setInterval(simulateInventoryActivity, 1100);
       }
     });
   },
