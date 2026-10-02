@@ -810,26 +810,27 @@ footer p {
     top: 105px;
   }
   .hero-side-left {
-  left: 24px;
-  top: 45%;
-  width: 110px;
+  position: absolute !important;
+  left: 28px !important;
+  top: 41% !important;
+  width: 115px;
   font-size: 0.52rem;
-  line-height: 1.5;
+  line-height: 1.55;
   text-align: left;
-  z-index: 5;
+  z-index: 20;
+  transform: none !important;
 }
 
 .hero-side-right {
-  right: 24px;
-  top: 45%;
-  width: 110px;
+  position: absolute !important;
+  right: 28px !important;
+  top: 41% !important;
+  width: 115px;
   font-size: 0.52rem;
-  line-height: 1.5;
+  line-height: 1.55;
   text-align: right;
-  z-index: 5;
-}
-  .hero-copy {
-  top: 105px;
+  z-index: 20;
+  transform: none !important;
 }
 
 .hero-side {
