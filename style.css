@@ -812,27 +812,29 @@ footer p {
   .hero-side-left {
   position: absolute !important;
   left: 28px !important;
-  top: 220px !important;
+  right: auto !important;
+  top: 340px !important;
   bottom: auto !important;
   width: 115px;
   font-size: 0.52rem;
   line-height: 1.55;
   text-align: left;
   z-index: 20;
-  transform: translateY(-60px) !important;
+  transform: none !important;
 }
 
 .hero-side-right {
   position: absolute !important;
+  left: auto !important;
   right: 28px !important;
-  top: 220px !important;
+  top: 340px !important;
   bottom: auto !important;
   width: 115px;
   font-size: 0.52rem;
   line-height: 1.55;
   text-align: right;
   z-index: 20;
-  transform: translateY(-60px) !important;
+  transform: none !important;
 }
 .hero-side {
   pointer-events: none;
