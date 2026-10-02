@@ -812,7 +812,7 @@ footer p {
   .hero-side-left {
   position: absolute !important;
   left: 28px !important;
-  top: 300px !important;
+  top: 220px !important;
   bottom: auto !important;
   width: 115px;
   font-size: 0.52rem;
@@ -825,7 +825,7 @@ footer p {
 .hero-side-right {
   position: absolute !important;
   right: 28px !important;
-  top: 300px !important;
+  top: 220px !important;
   bottom: auto !important;
   width: 115px;
   font-size: 0.52rem;
