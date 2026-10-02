@@ -248,42 +248,79 @@ const inventoryItems = Array.from(
 
 let inventoryLevels = [82, 61, 34, 18];
 
+  function animatePercentage(element, newValue) {
+  const currentValue = parseInt(element.textContent) || newValue;
+  const difference = newValue - currentValue;
+  const duration = 650;
+  const startTime = performance.now();
+
+  function updateNumber(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    const value = Math.round(
+      currentValue + difference * progress
+    );
+
+    element.textContent = `${value}%`;
+
+    if (progress < 1) {
+      requestAnimationFrame(updateNumber);
+    }
+  }
+
+  requestAnimationFrame(updateNumber);
+}
+
 function updateInventoryDisplay() {
   inventoryItems.forEach((item, index) => {
     const level = inventoryLevels[index];
 
     const fill = item.querySelector(".stock-fill");
     const percentage = item.querySelectorAll("strong")[1];
+
     if (fill) {
       fill.style.width = `${level}%`;
+
+      if (level < 18) {
+        fill.style.background = "#ff3b30";
+      } else {
+        fill.style.background = "var(--green)";
+      }
     }
 
     if (percentage) {
-      percentage.textContent = `${level}%`;
+      animatePercentage(percentage, level);
+
+      if (level < 18) {
+        percentage.style.color = "#ff3b30";
+      } else {
+        percentage.style.color = "#ffffff";
+      }
     }
   });
 }
 
 function simulateInventoryActivity() {
-  const randomItem = Math.floor(
-    Math.random() * inventoryLevels.length
-  );
+  inventoryLevels = inventoryLevels.map((level) => {
+    const changeAmount = Math.floor(Math.random() * 8) + 2;
 
-  const changeAmount = Math.floor(Math.random() * 7) + 3;
+    let shouldIncrease;
 
-const shouldIncrease = Math.random() < 0.35;
+    if (level < 30) {
+      shouldIncrease = Math.random() < 0.7;
+    } else if (level > 80) {
+      shouldIncrease = Math.random() < 0.3;
+    } else {
+      shouldIncrease = Math.random() < 0.5;
+    }
 
-if (shouldIncrease) {
-  inventoryLevels[randomItem] = Math.min(
-    100,
-    inventoryLevels[randomItem] + changeAmount
-  );
-} else {
-  inventoryLevels[randomItem] = Math.max(
-    5,
-    inventoryLevels[randomItem] - changeAmount
-  );
-}
+    if (shouldIncrease) {
+      return Math.min(100, level + changeAmount);
+    } else {
+      return Math.max(5, level - changeAmount);
+    }
+  });
 
   updateInventoryDisplay();
 }
