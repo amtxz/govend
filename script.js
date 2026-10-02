@@ -423,3 +423,44 @@ document.querySelectorAll(".catalog-card[data-machine]").forEach((button) => {
     });
   }
 });
+
+/* ------------------------------
+   ROTATING HERO TITLE
+------------------------------ */
+
+const rotatingWord = document.getElementById("rotatingWord");
+
+const rotatingWords = [
+  "AUTOMATED",
+  "CASHLESS",
+  "SMART",
+  "CONNECTED",
+  "STOCKED",
+  "24/7",
+  "VEND"
+];
+
+let rotatingWordIndex = 0;
+
+if (rotatingWord) {
+  setInterval(() => {
+    rotatingWord.classList.add("word-out");
+
+    setTimeout(() => {
+      rotatingWordIndex =
+        (rotatingWordIndex + 1) % rotatingWords.length;
+
+      rotatingWord.textContent =
+        rotatingWords[rotatingWordIndex];
+
+      rotatingWord.classList.remove("word-out");
+      rotatingWord.classList.add("word-in");
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          rotatingWord.classList.remove("word-in");
+        });
+      });
+    }, 350);
+  }, 2200);
+}
