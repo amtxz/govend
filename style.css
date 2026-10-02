@@ -49,6 +49,11 @@ body {
   font-weight: 900;
   letter-spacing: -0.08em;
 }
+.brand img {
+  display: block;
+  width: 125px;
+  height: auto;
+}
 
 .brand-go {
   color: var(--green);
@@ -784,6 +789,10 @@ footer p {
 .catalog-card span {
   color: var(--black) !important;
   -webkit-text-fill-color: var(--black);
+}
+
+.brand img {
+  width: 115px;
 }
 
   .navbar {
