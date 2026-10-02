@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>GOVEND | Automated Vending Machines</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="#top" class="brand">
+      <span class="brand-go">GO</span><span class="brand-vend">VEND</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#machines">MACHINES</a>
+      <a href="#why">WHY GOVEND</a>
+      <a href="#locations">LOCATIONS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+
+    <a href="#partnership" class="nav-cta">
+      PARTNERSHIP ↗
+    </a>
+  </header>
+
+  <main>
+
+    <!-- HERO + SCROLL EXPERIENCE -->
+    <section id="top" class="hero-scroll">
+
+      <div class="hero-sticky">
+
+        <div class="hero-copy">
+          <h1 class="pixel-title">AUTOMATED</h1>
+          <h2>VENDING MACHINES</h2>
+        </div>
+
+        <div class="hero-side hero-side-left">
+          <span class="green-dot"></span>
+          <p>
+            SNACKS<br>
+            DRINKS<br>
+            ESSENTIALS<br>
+            & MORE
+          </p>
+        </div>
+
+        <div class="hero-side hero-side-right">
+          <span class="green-dot"></span>
+          <p>
+            SMART<br>
+            CONVENIENT<br>
+            RELIABLE<br>
+            24/7
+          </p>
+        </div>
+
+        <div class="machine-stage">
+
+          <button class="hero-machine machine-one" data-machine="single">
+            <div class="machine-placeholder">
+              SINGLE DOOR
+            </div>
+          </button>
+
+          <button class="hero-machine machine-two" data-machine="double">
+            <div class="machine-placeholder">
+              DOUBLE DOOR
+            </div>
+          </button>
+
+          <button class="hero-machine machine-three" data-machine="generic">
+            <div class="machine-placeholder">
+              GENERIC
+            </div>
+          </button>
+
+        </div>
+
+        <div class="hero-actions">
+
+          <a href="#partnership" class="button button-dark">
+            PARTNERSHIP ↗
+          </a>
+
+          <a href="#machines" class="button button-light">
+            MACHINE CATALOG ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MACHINE CATALOG -->
+    <section id="machines" class="catalog-section">
+
+      <div class="section-heading">
+        <p>01 / MACHINE CATALOG</p>
+        <h2>CHOOSE YOUR MACHINE</h2>
+      </div>
+
+      <div class="machine-grid">
+
+        <button class="catalog-card" data-machine="single">
+          <div class="catalog-machine-placeholder">
+            SINGLE DOOR
+          </div>
+
+          <h3>Single Door Payless</h3>
+          <p>
+            Compact automated vending for modern spaces.
+          </p>
+
+          <span>VIEW MACHINE ↗</span>
+        </button>
+
+
+        <button class="catalog-card" data-machine="double">
+          <div class="catalog-machine-placeholder">
+            DOUBLE DOOR
+          </div>
+
+          <h3>Double Door Payless</h3>
+          <p>
+            Larger capacity with more product flexibility.
+          </p>
+
+          <span>VIEW MACHINE ↗</span>
+        </button>
+
+
+        <button class="catalog-card" data-machine="generic">
+          <div class="catalog-machine-placeholder">
+            GENERIC
+          </div>
+
+          <h3>Classic Vending</h3>
+          <p>
+            Reliable traditional vending for everyday locations.
+          </p>
+
+          <span>VIEW MACHINE ↗</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- WHY GOVEND -->
+    <section id="why" class="why-section">
+
+      <div class="section-heading light">
+        <p>02 / WHY GOVEND</p>
+        <h2>CONVENIENCE WITHOUT THE HASSLE.</h2>
+      </div>
+
+      <div class="why-grid">
+
+        <article>
+          <span class="go-word">GO</span>
+          <h3>CASHLESS</h3>
+          <p>
+            Modern payment options designed for fast, convenient purchases.
+          </p>
+        </article>
+
+        <article>
+          <span class="go-word">GO</span>
+          <h3>HASSLE-FREE</h3>
+          <p>
+            We handle inventory monitoring, service, and restocking.
+          </p>
+        </article>
+
+        <article>
+          <span class="go-word">GO</span>
+          <h3>SMART</h3>
+          <p>
+            Inventory is monitored remotely so we know what needs attention.
+          </p>
+        </article>
+
+        <article>
+          <span class="go-word">GO</span>
+          <h3>STOCKED</h3>
+          <p>
+            Smarter inventory visibility helps keep popular products available.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- LIVE INVENTORY SIMULATOR -->
+    <section class="inventory-section">
+
+      <div class="inventory-copy">
+        <p>03 / LIVE INVENTORY</p>
+        <h2>SEE WHAT WE SEE.</h2>
+
+        <p>
+          Our inventory dashboard helps us monitor stock levels remotely
+          and know when a machine needs attention.
+        </p>
+      </div>
+
+      <div class="inventory-dashboard">
+
+        <div class="inventory-header">
+          <span>GOVEND INVENTORY</span>
+          <span class="status-live">● LIVE</span>
+        </div>
+
+        <div class="inventory-item">
+          <div>
+            <strong>Coke Zero</strong>
+            <span>82%</span>
+          </div>
+          <div class="stock-bar">
+            <div class="stock-fill" data-level="82"></div>
+          </div>
+        </div>
+
+        <div class="inventory-item">
+          <div>
+            <strong>Water</strong>
+            <span>61%</span>
+          </div>
+          <div class="stock-bar">
+            <div class="stock-fill" data-level="61"></div>
+          </div>
+        </div>
+
+        <div class="inventory-item">
+          <div>
+            <strong>Takis</strong>
+            <span>34%</span>
+          </div>
+          <div class="stock-bar">
+            <div class="stock-fill" data-level="34"></div>
+          </div>
+        </div>
+
+        <div class="inventory-item low-stock">
+          <div>
+            <strong>Protein Bar</strong>
+            <span>18%</span>
+          </div>
+          <div class="stock-bar">
+            <div class="stock-fill" data-level="18"></div>
+          </div>
+
+          <p class="restock-alert">
+            LOW INVENTORY DETECTED — RESTOCK NEEDED
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- LOCATIONS -->
+    <section id="locations" class="locations-section">
+
+      <p>04 / PLACEMENT</p>
+
+      <h2>BUILT FOR MODERN SPACES.</h2>
+
+      <div class="location-list">
+        <span>APARTMENTS</span>
+        <span>OFFICES</span>
+        <span>GYMS</span>
+        <span>WAREHOUSES</span>
+        <span>SCHOOLS</span>
+        <span>RETAIL</span>
+      </div>
+
+    </section>
+
+
+    <!-- PARTNERSHIP FORM -->
+    <section id="partnership" class="partnership-section">
+
+      <div class="partnership-heading">
+        <p>05 / PARTNERSHIP</p>
+        <h2>WHERE SHOULD GOVEND LIVE NEXT?</h2>
+
+        <p>
+          Tell us about your location and where you would like a machine.
+        </p>
+      </div>
+
+      <form class="partnership-form">
+
+        <div class="form-row">
+          <label>
+            NAME
+            <input type="text" name="name" required>
+          </label>
+
+          <label>
+            EMAIL
+            <input type="email" name="email" required>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            COMPANY
+            <input type="text" name="company">
+          </label>
+
+          <label>
+            LOCATION ADDRESS
+            <input type="text" name="address" required>
+          </label>
+        </div>
+
+        <label>
+          PLACEMENT
+          <select name="placement" required>
+            <option value="">Select placement type</option>
+            <option>Apartment</option>
+            <option>Office</option>
+            <option>Gym</option>
+            <option>Warehouse</option>
+            <option>School</option>
+            <option>Retail</option>
+            <option>Other</option>
+          </select>
+        </label>
+
+        <label>
+          TELL US ABOUT THE LOCATION
+          <textarea
+            name="notes"
+            rows="5"
+            placeholder="Approximate foot traffic, preferred placement, building type, or anything else we should know."
+          ></textarea>
+        </label>
+
+        <button type="submit" class="button button-dark submit-button">
+          SUBMIT LOCATION ↗
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact">
+
+      <div class="footer-brand">
+        <span class="brand-go">GO</span><span class="brand-vend">VEND</span>
+      </div>
+
+      <p>24/7 AUTOMATED CONVENIENCE.</p>
+
+    </footer>
+
+  </main>
+
+
+  <!-- MACHINE DETAIL POPUP -->
+  <div class="machine-modal" id="machineModal">
+
+    <div class="machine-modal-panel">
+
+      <button class="modal-close" id="modalClose">
+        ×
+      </button>
+
+      <div id="modalContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
