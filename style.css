@@ -953,4 +953,10 @@ footer p {
     align-items: flex-start;
     gap: 16px;
   }
+
+.footer-brand img {
+  width: 140px !important;
+  max-width: 140px !important;
+  height: auto !important;
+  display: block;
 }
