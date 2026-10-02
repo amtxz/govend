@@ -774,7 +774,9 @@ footer p {
     gap: 0;
   }
 }
-
+.mobile-contact-link {
+  display: none;
+}
 @media (max-width: 700px) {
 
   .navbar {
@@ -783,6 +785,7 @@ footer p {
   }
 
   .mobile-contact-link {
+    display: block;
     position: absolute;
     top: 185px;
     right: 28px;
