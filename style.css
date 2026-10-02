@@ -866,7 +866,7 @@ footer p {
   .hero-actions {
   position: absolute;
   left: 50%;
-  bottom: 130px;
+  bottom: 200px;
   transform: translateX(-50%);
   width: calc(100% - 40px);
   padding: 0;
