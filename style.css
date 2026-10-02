@@ -133,16 +133,19 @@ body {
 .rotating-go {
   color: var(--green);
   flex-shrink: 0;
+  font-family: "Courier New", monospace;
+  font-weight: 900;
 }
 
 .rotating-word {
   display: inline-block;
   color: var(--black);
+  font-family: "Courier New", monospace;
+  font-weight: 900;
   transition:
     opacity 0.35s ease,
     transform 0.35s ease;
 }
-
 .rotating-word.word-out {
   opacity: 0;
   transform: translateY(-18px);
