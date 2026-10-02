@@ -779,14 +779,15 @@ footer p {
     height: 72px;
     padding: 0 20px;
     .rotating-title {
-  font-size: clamp(2.4rem, 11vw, 4rem);
-  gap: 0.08em;
+  font-size: clamp(1.9rem, 8.5vw, 3rem);
+  gap: 0.06em;
   white-space: nowrap;
+  width: 100%;
+  justify-content: center;
 }
 
 .rotating-word {
   display: inline-block;
-  max-width: 74vw;
   font-size: inherit;
   white-space: nowrap;
 }
