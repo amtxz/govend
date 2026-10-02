@@ -809,11 +809,11 @@ footer p {
   .hero-copy {
     top: 105px;
   }
-  .hero-side-left {
+ .hero-side-left {
   position: absolute !important;
   left: 28px !important;
   right: auto !important;
-  top: 200px !important;
+  top: 260px !important;
   bottom: auto !important;
   width: 115px;
   font-size: 0.52rem;
@@ -827,7 +827,7 @@ footer p {
   position: absolute !important;
   left: auto !important;
   right: 28px !important;
- top: 200px !important;
+  top: 260px !important;
   bottom: auto !important;
   width: 115px;
   font-size: 0.52rem;
