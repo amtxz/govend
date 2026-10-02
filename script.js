@@ -22,6 +22,43 @@ const catalogTargets = {
     '.catalog-card[data-machine="generic"] .catalog-machine-image'
   )
 };
+  let machineLandingData = null;
+
+function calculateMachineLandingData() {
+  if (!machineStage) return;
+
+  const stageRect = machineStage.getBoundingClientRect();
+
+  const getData = (machine, target) => {
+    if (!machine || !target) return null;
+
+    const targetRect = target.getBoundingClientRect();
+
+    const startCenterX =
+      stageRect.left + machine.offsetLeft + machine.offsetWidth / 2;
+
+    const startCenterY =
+      stageRect.top + machine.offsetTop + machine.offsetHeight / 2;
+
+    const targetCenterX =
+      targetRect.left + targetRect.width / 2;
+
+    const targetCenterY =
+      targetRect.top + targetRect.height / 2;
+
+    return {
+      x: targetCenterX - startCenterX,
+      y: targetCenterY - startCenterY,
+      scale: targetRect.width / machine.offsetWidth
+    };
+  };
+
+  machineLandingData = {
+    single: getData(machineOne, catalogTargets.single),
+    double: getData(machineTwo, catalogTargets.double),
+    generic: getData(machineThree, catalogTargets.generic)
+  };
+}
 
 function clamp(value, min = 0, max = 1) {
   return Math.max(min, Math.min(max, value));
@@ -98,67 +135,41 @@ machines.forEach((machine) => {
 
 const landingProgress = clamp((progress - 0.28) / 0.72);
 
-const transitionMachine = (machine, target) => {
-  if (!machine || !target || !machineStage) return;
+const transitionMachine = (machine, destination) => {
+  if (!machine || !destination) return;
 
-  const stageRect = machineStage.getBoundingClientRect();
-  const targetRect = target.getBoundingClientRect();
-
-  /*
-    Calculate the machine's original position without using
-    getBoundingClientRect() on the machine itself, because the
-    machine is already being transformed.
-  */
-  const startCenterX =
-    stageRect.left + machine.offsetLeft + machine.offsetWidth / 2;
-
-  const startCenterY =
-    stageRect.top + machine.offsetTop + machine.offsetHeight / 2;
-
-  const targetCenterX =
-    targetRect.left + targetRect.width / 2;
-
-  const targetCenterY =
-    targetRect.top + targetRect.height / 2;
-
-  const targetX = targetCenterX - startCenterX;
-  const targetY = targetCenterY - startCenterY;
-
-  const targetScale =
-    targetRect.width / machine.offsetWidth;
-
-  const moveX = lerp(0, targetX, landingProgress);
-  const moveY = lerp(0, targetY, landingProgress);
-  const scale = lerp(1, targetScale, landingProgress);
+  const moveX = lerp(0, destination.x, landingProgress);
+  const moveY = lerp(0, destination.y, landingProgress);
+  const scale = lerp(1, destination.scale, landingProgress);
 
   machine.style.setProperty("--scroll-x", `${moveX}px`);
   machine.style.setProperty("--scroll-y", `${moveY}px`);
   machine.style.setProperty("--scroll-scale", scale);
 
-  /*
-    Fade the traveling copy right before it reaches the catalog.
-    The real catalog image underneath takes over seamlessly.
-  */
-  const fadeOut = clamp((landingProgress - 0.82) / 0.18);
+  const fadeOut = clamp((landingProgress - 0.92) / 0.08);
   machine.style.opacity = 1 - fadeOut;
 };
-
 transitionMachine(
   machineOne,
-  catalogTargets.single
+  machineLandingData?.single
 );
 
 transitionMachine(
   machineTwo,
-  catalogTargets.double
+  machineLandingData?.double
 );
 
 transitionMachine(
   machineThree,
-  catalogTargets.generic
+  machineLandingData?.generic
 );
   }
+calculateMachineLandingData();
 
+window.addEventListener("resize", () => {
+  calculateMachineLandingData();
+  updateHeroScroll();
+});
   window.addEventListener("scroll", updateHeroScroll, { passive: true });
   updateHeroScroll();
 
