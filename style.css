@@ -782,12 +782,11 @@ footer p {
     padding: 0 20px;
   }
 
-  .hero-machine,
   .hero-machine img {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
 
   .rotating-title {
     
