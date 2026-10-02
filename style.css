@@ -122,6 +122,37 @@ body {
   image-rendering: pixelated;
 }
 
+.rotating-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.12em;
+  white-space: nowrap;
+}
+
+.rotating-go {
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.rotating-word {
+  display: inline-block;
+  color: var(--black);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.rotating-word.word-out {
+  opacity: 0;
+  transform: translateY(-18px);
+}
+
+.rotating-word.word-in {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
 .hero-copy h2 {
   margin-top: 8px;
   font-size: clamp(2.2rem, 4.2vw, 4.9rem);
