@@ -113,13 +113,12 @@ body {
 }
 
 .pixel-title {
-  font-family: "Courier New", monospace;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(3.4rem, 6vw, 6.8rem);
   line-height: 0.9;
   font-weight: 900;
-  letter-spacing: -0.09em;
+  letter-spacing: -0.07em;
   text-transform: uppercase;
-  image-rendering: pixelated;
 }
 
 .rotating-title {
@@ -133,14 +132,12 @@ body {
 .rotating-go {
   color: var(--green);
   flex-shrink: 0;
-  font-family: "Courier New", monospace;
   font-weight: 900;
 }
 
 .rotating-word {
   display: inline-block;
   color: var(--black);
-  font-family: "Courier New", monospace;
   font-weight: 900;
   transition:
     opacity 0.35s ease,
