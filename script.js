@@ -273,6 +273,8 @@ let inventoryLevels = [82, 61, 34, 18];
 }
 
 function updateInventoryDisplay() {
+  let hasLowInventory = false;
+
   inventoryItems.forEach((item, index) => {
     const level = inventoryLevels[index];
 
@@ -284,6 +286,7 @@ function updateInventoryDisplay() {
 
       if (level < 18) {
         fill.style.background = "#ff3b30";
+        hasLowInventory = true;
       } else {
         fill.style.background = "var(--green)";
       }
@@ -299,6 +302,16 @@ function updateInventoryDisplay() {
       }
     }
   });
+
+  const restockAlert = document.querySelector(".restock-alert");
+
+  if (restockAlert) {
+    if (hasLowInventory) {
+      restockAlert.classList.add("is-active");
+    } else {
+      restockAlert.classList.remove("is-active");
+    }
+  }
 }
 
 function simulateInventoryActivity() {
