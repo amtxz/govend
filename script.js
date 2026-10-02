@@ -238,7 +238,70 @@ window.addEventListener("resize", () => {
     inventoryObserver.observe(inventoryDashboard);
   }
 
+/* ------------------------------
+   LIVE INVENTORY SIMULATION
+------------------------------ */
 
+const inventoryItems = Array.from(
+  document.querySelectorAll(".inventory-item")
+);
+
+let inventoryLevels = [82, 61, 34, 18];
+
+function updateInventoryDisplay() {
+  inventoryItems.forEach((item, index) => {
+    const level = inventoryLevels[index];
+
+    const fill = item.querySelector(".stock-fill");
+    const percentage = item.querySelector("strong");
+
+    if (fill) {
+      fill.style.width = `${level}%`;
+    }
+
+    if (percentage) {
+      percentage.textContent = `${level}%`;
+    }
+  });
+}
+
+function simulateInventoryActivity() {
+  const randomItem = Math.floor(
+    Math.random() * inventoryLevels.length
+  );
+
+  const amountSold = Math.floor(Math.random() * 4) + 1;
+
+  inventoryLevels[randomItem] = Math.max(
+    5,
+    inventoryLevels[randomItem] - amountSold
+  );
+
+  updateInventoryDisplay();
+}
+
+let inventorySimulationStarted = false;
+
+const liveInventoryObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !inventorySimulationStarted) {
+        inventorySimulationStarted = true;
+
+        updateInventoryDisplay();
+
+        setInterval(simulateInventoryActivity, 2200);
+      }
+    });
+  },
+  {
+    threshold: 0.35
+  }
+);
+
+if (inventoryDashboard) {
+  liveInventoryObserver.observe(inventoryDashboard);
+}
   /* ------------------------------
      MACHINE MODAL
   ------------------------------ */
