@@ -821,6 +821,7 @@ footer p {
   text-align: left;
   z-index: 20;
   transform: none !important;
+  margin-top: -70px !important;
 }
 
 .hero-side-right {
@@ -835,6 +836,7 @@ footer p {
   text-align: right;
   z-index: 20;
   transform: none !important;
+  margin-top: -70px !important;
 }
 .hero-side {
   pointer-events: none;
