@@ -809,6 +809,32 @@ footer p {
   .hero-copy {
     top: 105px;
   }
+  .hero-side-left {
+  left: 14px;
+  top: 60%;
+  width: 90px;
+  font-size: 0.52rem;
+  line-height: 1.5;
+  text-align: left;
+  z-index: 5;
+}
+
+.hero-side-right {
+  right: 14px;
+  top: 60%;
+  width: 90px;
+  font-size: 0.52rem;
+  line-height: 1.5;
+  text-align: right;
+  z-index: 5;
+}
+  .hero-copy {
+  top: 105px;
+}
+
+.hero-side {
+  pointer-events: none;
+}
 
   .machine-stage {
     top: 56%;
