@@ -80,20 +80,24 @@ machines.forEach((machine) => {
   let time = 0;
 
   function floatMachines() {
-    time += 0.016;
+  time += 0.016;
 
-    machines.forEach((machine, index) => {
-      const speed = 1 + index * 0.18;
-      const amplitude = 5 + index * 1.5;
+  machines.forEach((machine, index) => {
+    const speed = 1 + index * 0.18;
 
-      const floatY = Math.sin(time * speed) * amplitude;
+    const isMobile = window.innerWidth <= 700;
 
-      machine.style.setProperty("--float-y", `${floatY}px`);
-    });
+    const amplitude = isMobile
+      ? 12 + index * 2
+      : 5 + index * 1.5;
 
-    requestAnimationFrame(floatMachines);
-  }
+    const floatY = Math.sin(time * speed) * amplitude;
 
+    machine.style.setProperty("--float-y", `${floatY}px`);
+  });
+
+  requestAnimationFrame(floatMachines);
+}
   floatMachines();
 
 
