@@ -819,7 +819,7 @@ footer p {
   line-height: 1.55;
   text-align: left;
   z-index: 20;
-  transform: translateY(-120px) !important;
+  transform: translateY(-60px) !important;
 }
 
 .hero-side-right {
@@ -832,7 +832,7 @@ footer p {
   line-height: 1.55;
   text-align: right;
   z-index: 20;
-  transform: translateY(-120px) !important;
+  transform: translateY(-60px) !important;
 }
 .hero-side {
   pointer-events: none;
