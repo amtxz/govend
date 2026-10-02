@@ -245,6 +245,15 @@ body {
   text-align: center;
 }
 
+.catalog-machine-image {
+  width: 82%;
+  height: 88%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.22));
+}
+
 /* HERO BUTTONS */
 
 .hero-actions {
