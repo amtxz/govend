@@ -279,8 +279,7 @@ function updateInventoryDisplay() {
     const level = inventoryLevels[index];
 
     const fill = item.querySelector(".stock-fill");
-    const percentage = item.querySelectorAll("strong")[1];
-
+    const percentage = item.querySelector("span");
     if (fill) {
       fill.style.width = `${level}%`;
 
