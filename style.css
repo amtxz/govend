@@ -782,11 +782,26 @@ footer p {
     padding: 0 20px;
   }
 
+  .mobile-contact-link {
+    position: absolute;
+    top: 185px;
+    right: 28px;
+
+    font-family: "Courier New", monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+
+    color: var(--black);
+    text-decoration: none;
+
+    z-index: 30;
+  }
+
   .hero-machine img {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
 
   .rotating-title {
     
