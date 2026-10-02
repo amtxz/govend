@@ -183,6 +183,32 @@ body {
   transform: translateY(-8px) scale(1.015);
 }
 
+/* HERO SCROLL + FLOATING MOTION */
+
+.hero-machine {
+  transform:
+    translate(
+      var(--scroll-x, 0px),
+      calc(var(--float-y, 0px) + var(--scroll-y, 0px))
+    )
+    scale(var(--scroll-scale, 1));
+  will-change: transform;
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 .machine-one {
   left: 8%;
   top: 72px;
