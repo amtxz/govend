@@ -94,8 +94,12 @@ body {
   height: 100vh;
   min-height: 720px;
   padding-top: 105px;
-  overflow: hidden;
+  overflow: visible;
   background: var(--bg);
+}
+
+.hero-scroll {
+  overflow: visible;
 }
 
 .hero-copy {
