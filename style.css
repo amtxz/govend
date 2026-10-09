@@ -893,6 +893,10 @@ footer p {
   object-position: center top !important;
 }
 
+.how-step-image img.inquire-photo {
+  object-position: 30% center !important;
+}
+
 .how-step-image span {
   font-family: "Courier New", monospace;
   font-size: 0.7rem;
