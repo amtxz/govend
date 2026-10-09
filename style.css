@@ -889,6 +889,10 @@ footer p {
   display: block;
 }
 
+.how-step-image img.stock-manage-photo {
+  object-position: center 10% !important;
+}
+
 .stock-manage-photo {
   object-position: center 20%;
 }
