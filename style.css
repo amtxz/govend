@@ -890,11 +890,7 @@ footer p {
 }
 
 .how-step-image img.stock-manage-photo {
-  object-position: center 10% !important;
-}
-
-.stock-manage-photo {
-  object-position: center 20%;
+  object-position: center top !important;
 }
 
 .how-step-image span {
