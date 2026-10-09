@@ -889,6 +889,10 @@ footer p {
   display: block;
 }
 
+.stock-manage-photo {
+  object-position: center 42%;
+}
+
 .how-step-image span {
   font-family: "Courier New", monospace;
   font-size: 0.7rem;
