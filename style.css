@@ -880,6 +880,13 @@ footer p {
   margin-bottom: 18px;
 }
 
+.how-step-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .how-step-image span {
   font-family: "Courier New", monospace;
   font-size: 0.7rem;
