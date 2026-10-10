@@ -1121,7 +1121,7 @@ footer p {
   gap: 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-bottom: 14px;
+  padding-bottom: 16px;
   scrollbar-width: none;
 }
 
@@ -1130,7 +1130,8 @@ footer p {
 }
 
 .how-step {
-  flex: 0 0 78%;
+  flex: 0 0 82%;
+  min-width: 0;
   scroll-snap-align: start;
 }
 
