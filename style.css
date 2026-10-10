@@ -1159,3 +1159,26 @@ footer p {
   height: auto !important;
   display: block;
 }
+
+  @media (max-width: 700px) {
+  .how-it-works-track {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 16px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+  }
+
+  .how-it-works-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .how-step {
+    flex: 0 0 82% !important;
+    width: 82% !important;
+    min-width: 82% !important;
+    scroll-snap-align: start;
+  }
+}
