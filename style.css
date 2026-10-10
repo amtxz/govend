@@ -887,6 +887,7 @@ footer p {
   object-fit: cover;
   object-position: center;
   display: block;
+  filter: saturate(0.82) contrast(1.08) brightness(0.88);
 }
 
 .how-step-image img.stock-manage-photo {
