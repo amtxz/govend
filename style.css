@@ -912,9 +912,8 @@ footer p {
 }
 
 .how-it-works-action {
-  display: flex;
-  justify-content: center;
-  margin-top: 55px;
+  display: none !important;
+}5px;
 }
 
 .how-it-works-action .button {
