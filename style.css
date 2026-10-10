@@ -906,9 +906,13 @@ footer p {
 }
 
 .how-step p {
-  color: #bcbcbc;
-  font-size: 0.82rem;
-  line-height: 1.55;
+  color: #E8EDF2;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  text-align: center;
+  font-weight: 400;
+  max-width: 280px;
+  margin: 0 auto;
 }
 
 .how-it-works-action {
